@@ -1,0 +1,140 @@
+/* ============================================
+   PrepHQ — Global Styles
+   Tailwind v4 + Glassmorphism Design Tokens
+   ============================================ */
+
+@import "tailwindcss";
+
+/* ── Custom Theme Tokens ─────────────────────── */
+@theme {
+  /* Glassmorphism palette */
+  --color-glass-bg: oklch(0.15 0.01 260 / 0.6);
+  --color-glass-border: oklch(1 0 0 / 0.1);
+  --color-glass-hover: oklch(1 0 0 / 0.05);
+
+  /* Neon accents */
+  --color-neon-blue: oklch(0.7 0.2 250);
+  --color-neon-purple: oklch(0.65 0.25 300);
+  --color-neon-green: oklch(0.75 0.2 150);
+  --color-neon-red: oklch(0.65 0.25 25);
+  --color-neon-yellow: oklch(0.8 0.18 90);
+
+  /* Surfaces */
+  --color-surface-primary: oklch(0.12 0.01 260);
+  --color-surface-secondary: oklch(0.16 0.01 260);
+  --color-surface-elevated: oklch(0.2 0.01 260);
+
+  /* Text */
+  --color-text-primary: oklch(0.95 0 0);
+  --color-text-secondary: oklch(0.7 0 0);
+  --color-text-muted: oklch(0.5 0 0);
+}
+
+/* ── Base ─────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--color-surface-primary);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Custom Title Bar Drag Region ────────────── */
+.drag-region {
+  -webkit-app-region: drag;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* ── Glassmorphism Utilities ─────────────────── */
+.glass {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid var(--color-glass-border);
+}
+
+.glass-subtle {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border);
+  opacity: 0.85;
+}
+
+/* ── Neon Glow Effects ───────────────────────── */
+.glow-blue {
+  box-shadow: 0 0 20px oklch(0.7 0.2 250 / 0.3),
+    0 0 40px oklch(0.7 0.2 250 / 0.1);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px oklch(0.65 0.25 300 / 0.3),
+    0 0 40px oklch(0.65 0.25 300 / 0.1);
+}
+
+/* ── Cyberpunk Theme Extras ──────────────────── */
+[data-theme="cyberpunk"] .glass {
+  border-color: oklch(0.7 0.3 340 / 0.2);
+  box-shadow: 0 0 15px oklch(0.7 0.3 340 / 0.08), inset 0 0 30px oklch(0.7 0.3 340 / 0.03);
+}
+
+[data-theme="cyberpunk"] .glow-blue {
+  box-shadow: 0 0 25px oklch(0.75 0.25 195 / 0.5),
+    0 0 60px oklch(0.75 0.25 195 / 0.15);
+}
+
+[data-theme="cyberpunk"] .glow-purple {
+  box-shadow: 0 0 25px oklch(0.7 0.35 340 / 0.5),
+    0 0 60px oklch(0.7 0.35 340 / 0.15);
+}
+
+/* ── Light Theme Adjustments ─────────────────── */
+[data-theme="light"] .glass {
+  background: oklch(1 0 0 / 0.6);
+  border-color: oklch(0 0 0 / 0.08);
+  box-shadow: 0 1px 3px oklch(0 0 0 / 0.06);
+}
+
+[data-theme="light"] .glass-subtle {
+  background: oklch(0.98 0 0 / 0.6);
+  border-color: oklch(0 0 0 / 0.05);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: oklch(0 0 0 / 0.15);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: oklch(0 0 0 / 0.25);
+}
+
+/* ── Scrollbar ───────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(1 0 0 / 0.15);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(1 0 0 / 0.25);
+}
